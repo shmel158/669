@@ -1,0 +1,36 @@
+# Скопируйте в config.yaml и настройте под себя.
+# Все параметры здесь управляют РИСКОМ и НЕ читаются из сигнала.
+
+# Доля депозита (accountValue), которая ставится в одну сделку, напр. 0.02 = 2%
+pct_of_equity: 0.02
+
+# Плечо и режим маржи
+leverage: 3
+margin_mode: cross          # cross | isolated
+
+# Сколько TWAP-позиций может быть открыто одновременно
+max_concurrent_positions: 3
+
+# Стоп-лосс / тейк-профит в % от цены входа (ставятся после завершения TWAP-окна)
+stop_loss_pct: 0.05
+take_profit_pct: 0.10
+
+# Если задан whitelist — торгуются только эти монеты (пусто = разрешены все, кроме blacklist)
+coin_whitelist: []
+coin_blacklist: []
+
+# Кап на длительность TWAP из сигнала, чтобы не поймать аномальное значение
+max_twap_duration_hours: 24
+min_twap_duration_minutes: 5
+
+# Случайный джиттер размера/тайминга сабордеров TWAP (поле "t" в API)
+randomize_twap: true
+
+# true = только считает и логирует, ничего не отправляет на биржу
+dry_run: true
+
+# true = торговать на testnet Hyperliquid
+use_testnet: true
+
+# Как часто (в секундах) проверять, не пора ли навесить SL/TP на завершившийся TWAP
+watch_interval_seconds: 60

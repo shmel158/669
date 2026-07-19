@@ -1,0 +1,10 @@
+.env
+config.yaml
+*.session
+*.session-journal
+bot_state.db
+bot_state.db-*
+bot.log
+venv/
+__pycache__/
+*.pyc
