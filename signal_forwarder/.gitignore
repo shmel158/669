@@ -1,0 +1,12 @@
+.env
+config.yaml
+*.session
+*.session-journal
+forward_state.db
+forward_state.db-*
+forwarder.log
+venv/
+__pycache__/
+*.pyc
+build/
+dist/

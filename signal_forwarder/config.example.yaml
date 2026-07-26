@@ -1,0 +1,33 @@
+# Скопируйте в config.yaml и настройте под себя.
+
+# true = только логировать итоговый текст для каждого таргета, ничего не отправлять
+# Полезно для проверки правил замены/обёртки перед боевым запуском.
+dry_run: true
+
+sources:
+  - name: source_a
+    chat_id: -1001111111111
+  - name: source_b
+    chat_id: -1002222222222
+
+targets:
+  - name: channel_x
+    chat_id: -1003333333333
+    # Из каких источников ретранслировать в этот канал. Если не задано — все источники.
+    sources: [source_a, source_b]
+    prefix: "🔥 Сигнал\n\n"
+    suffix: "\n\nПодписывайся: @channel_x"
+    # Замены применяются по порядку, до prefix/suffix.
+    replacements:
+      - from: "оригинальное упоминание"
+        to: "наш бренд"
+      - from: "СТАРЫЙ_ТИКЕР"
+        to: "НОВЫЙ_ТИКЕР"
+        regex: false
+
+  - name: channel_y
+    chat_id: -1004444444444
+    sources: [source_a]
+    prefix: ""
+    suffix: "\n\n@channel_y_link"
+    replacements: []
